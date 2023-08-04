@@ -1,5 +1,5 @@
 # ---- Base Node ----
-FROM node:19-alpine AS base
+FROM harbor.builder.gamewarden.io/baseimages/nodejs-cgr-dev:18.16.0 AS base
 WORKDIR /app
 COPY package*.json ./
 
@@ -13,7 +13,7 @@ COPY . .
 RUN npm run build
 
 # ---- Production ----
-FROM node:19-alpine AS production
+FROM harbor.builder.gamewarden.io/baseimages/nodejs-cgr-dev:18.16.0 AS production
 WORKDIR /app
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY --from=build /app/.next ./.next

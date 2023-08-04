@@ -31,7 +31,7 @@
     "remark-gfm": "^3.0.1",
     "remark-math": "^5.1.1",
     "uuid": "^9.0.0",
-    "vitest": "^0.29.7"
+    "vitest": "^0.34.1"
   },
   "devDependencies": {
     "@mozilla/readability": "^0.4.4",

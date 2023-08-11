@@ -1,14 +1,6 @@
 # ---- Base Node ----
-FROM harbor.builder.gamewarden.io/baseimages/nodejs-cgr-dev:18.16.0 AS base
+FROM harbor.builder.gamewarden.io/baseimages/nodejs-cgr-dev:18.16.0 AS build
 WORKDIR /app
-COPY package*.json ./
-
-# ---- Dependencies ----
-FROM base AS dependencies
-# RUN npm install
-
-# ---- Build ----
-FROM dependencies AS build
 COPY . .
 RUN npm run build
 

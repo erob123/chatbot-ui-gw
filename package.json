@@ -10,7 +10,7 @@
     "format": "prettier --write .",
     "test": "vitest",
     "test:unit": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage.enabled=true --coverage.provider=istanbul --coverage.reporter=lcov"
   },
   "dependencies": {
     "@dqbd/tiktoken": "^1.0.2",

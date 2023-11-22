@@ -7,12 +7,12 @@ RUN npm run build
 # ---- Production ----
 FROM harbor.builder.gamewarden.io/baseimages/nodejs-cgr-dev:18.16.0 AS production
 WORKDIR /app
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/.next ./.next
-COPY --from=build /app/public ./public
-COPY --from=build /app/package*.json ./
-COPY --from=build /app/next.config.js ./next.config.js
-COPY --from=build /app/next-i18next.config.js ./next-i18next.config.js
+COPY --chown=node:node --from=build /app/node_modules ./node_modules
+COPY --chown=node:node --from=build /app/.next ./.next
+COPY --chown=node:node --from=build /app/public ./public
+COPY --chown=node:node --from=build /app/package*.json ./
+COPY --chown=node:node --from=build /app/next.config.js ./next.config.js
+COPY --chown=node:node --from=build /app/next-i18next.config.js ./next-i18next.config.js
 
 # Expose the port the app will run on
 EXPOSE 3000
